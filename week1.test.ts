@@ -17,7 +17,7 @@ interface City {
 }
 
 interface Coach {
-  name: string;
+  coachNumber: number;
   passengers: number;
 }
 
@@ -187,7 +187,7 @@ describe("withinSameCountry", () => {
     };
     expect(week1.withinSameCountry(amsterdam, philadelphia)).toBe(
       "Amsterdam and Philadelphia are not within the same country");
-    });
+  });
 
   test("whether the two cities within the same country", () => {
     const amsterdam: City = {
@@ -204,8 +204,8 @@ describe("withinSameCountry", () => {
     };
     expect(week1.withinSameCountry(amsterdam, amsterdam2)).toBe(
       "Tokyo and Kyoto are within the same country");
-    });
   });
+});
 
 
 describe("getLargerPopulation", () => {
@@ -283,24 +283,24 @@ describe("getLargerPopulationString", () => {
 
 describe("getLargestPopulationString", () => {
   test("get the largest population string", () => {
-  const city1: City = {
-    name: "Amsterdam",
-    population: 821000,
-    country: "Netherlands",
-    isCapital: true,
-  };
-  const city2: City = {
-    name: "Philadelphia",
-    population: 1576000,
-    country: "USA",
-    isCapital: false,
-  };
-  const city3: City = {
-    name: "Tokyo",
-    population: 37400068,
-    country: "Japan",
-    isCapital: true,
-  };
+    const city1: City = {
+      name: "Amsterdam",
+      population: 821000,
+      country: "Netherlands",
+      isCapital: true,
+    };
+    const city2: City = {
+      name: "Philadelphia",
+      population: 1576000,
+      country: "USA",
+      isCapital: false,
+    };
+    const city3: City = {
+      name: "Tokyo",
+      population: 37400068,
+      country: "Japan",
+      isCapital: true,
+    };
     expect(week1.getLargestPopulationString(city1, city2, city3)).toBe(
       "Tokyo has the largest population"
     );
@@ -326,110 +326,110 @@ describe("getLargestPopulationString", () => {
       isCapital: false,
     };
     expect(week1.getLargestPopulationString(city1, city2, city3)).toBe(
-        "Tokyo has the largest population"
-      );
-    });
-
-    test("get the largest population string with different order of parameters", () => {
-      const city1: City = {
-        name: "Amsterdam",
-        population: 821000,
-        country: "Netherlands",
-        isCapital: true,
-      };
-      const city2: City = {
-        name: "Tokyo",
-        population: 37400068,
-        country: "Japan",
-        isCapital: true,
-      };
-      const city3: City = {
-        name: "Philadelphia",
-        population: 1576000,
-        country: "USA",
-        isCapital: false,
-      };
-      expect(week1.getLargestPopulationString(city1, city2, city3)).toBe(
-          "Tokyo has the largest population"
-        );
-      });
-
+      "Tokyo has the largest population"
+    );
   });
 
+  test("get the largest population string with different order of parameters", () => {
+    const city1: City = {
+      name: "Amsterdam",
+      population: 821000,
+      country: "Netherlands",
+      isCapital: true,
+    };
+    const city2: City = {
+      name: "Tokyo",
+      population: 37400068,
+      country: "Japan",
+      isCapital: true,
+    };
+    const city3: City = {
+      name: "Philadelphia",
+      population: 1576000,
+      country: "USA",
+      isCapital: false,
+    };
+    expect(week1.getLargestPopulationString(city1, city2, city3)).toBe(
+      "Tokyo has the largest population"
+    );
+  });
 
-  describe("getPopulationOrder", () => {
-    test("order by population (Tokyo > Philadelphia > Amsterdam)", () => {
-      const city1: City = {
-        name: "Amsterdam",
-        population: 821000,
-        country: "Netherlands",
-        isCapital: true,
-      };
-      const city2: City = {
-        name: "Philadelphia",
-        population: 1576000,
-        country: "USA",
-        isCapital: false,
-      };
-      const city3: City = {
-        name: "Tokyo",
-        population: 37400068,
-        country: "Japan",
-        isCapital: true,
-      };
-      expect(week1.getPopulationOrder(city1, city2, city3)).toBe(
-        "Tokyo > Philadelphia > Amsterdam"
-      );
-    });
-    
-    test("test with different order of parameters", () => {
-      const city1: City = {
-        name: "Tokyo",
-        population: 37400068,
-        country: "Japan",
-        isCapital: true,
-      };
-      const city2: City = {
-        name: "Amsterdam",
-        population: 821000,
-        country: "Netherlands",
-        isCapital: true,
-      };
-      const city3: City = {
-        name: "Philadelphia",
-        population: 1576000,
-        country: "USA",
-        isCapital: false,
-      };
-      expect(week1.getPopulationOrder(city1, city2, city3)).toBe(
-        "Tokyo > Philadelphia > Amsterdam"
-      );
-    });
-  
-    test("test with different order of parameters", () => {
-        const city1: City = {
-          name: "Amsterdam",
-          population: 821000,
-          country: "Netherlands",
-          isCapital: true,
-        };
-        const city2: City = {
-          name: "Tokyo",
-          population: 37400068,
-          country: "Japan",
-          isCapital: true,
-        };
-        const city3: City = {
-          name: "Philadelphia",
-          population: 1576000,
-          country: "USA",
-          isCapital: false,
-        };
-        expect(week1.getPopulationOrder(city1, city2, city3)).toBe(
-          "Tokyo > Philadelphia > Amsterdam"
-        );
-    });
+});
 
+
+describe("getPopulationOrder", () => {
+  test("order by population (Tokyo > Philadelphia > Amsterdam)", () => {
+    const city1: City = {
+      name: "Amsterdam",
+      population: 821000,
+      country: "Netherlands",
+      isCapital: true,
+    };
+    const city2: City = {
+      name: "Philadelphia",
+      population: 1576000,
+      country: "USA",
+      isCapital: false,
+    };
+    const city3: City = {
+      name: "Tokyo",
+      population: 37400068,
+      country: "Japan",
+      isCapital: true,
+    };
+    expect(week1.getPopulationOrder(city1, city2, city3)).toBe(
+      "Tokyo > Philadelphia > Amsterdam"
+    );
+  });
+
+  test("test with different order of parameters", () => {
+    const city1: City = {
+      name: "Tokyo",
+      population: 37400068,
+      country: "Japan",
+      isCapital: true,
+    };
+    const city2: City = {
+      name: "Amsterdam",
+      population: 821000,
+      country: "Netherlands",
+      isCapital: true,
+    };
+    const city3: City = {
+      name: "Philadelphia",
+      population: 1576000,
+      country: "USA",
+      isCapital: false,
+    };
+    expect(week1.getPopulationOrder(city1, city2, city3)).toBe(
+      "Tokyo > Philadelphia > Amsterdam"
+    );
+  });
+
+  test("test with different order of parameters", () => {
+    const city1: City = {
+      name: "Amsterdam",
+      population: 821000,
+      country: "Netherlands",
+      isCapital: true,
+    };
+    const city2: City = {
+      name: "Tokyo",
+      population: 37400068,
+      country: "Japan",
+      isCapital: true,
+    };
+    const city3: City = {
+      name: "Philadelphia",
+      population: 1576000,
+      country: "USA",
+      isCapital: false,
+    };
+    expect(week1.getPopulationOrder(city1, city2, city3)).toBe(
+      "Tokyo > Philadelphia > Amsterdam"
+    );
+  });
+});
 
 // Define the mock Train and Coach interfaces
 interface Coach {
